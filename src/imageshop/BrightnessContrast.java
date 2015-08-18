@@ -7,6 +7,7 @@ package imageshop;
 
 import static imageshop.ToolBox.openedImages;
 import java.awt.image.BufferedImage;
+import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -47,9 +48,9 @@ public class BrightnessContrast extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        panelBrightness = new javax.swing.JPanel();
         sliderBrightness = new javax.swing.JSlider();
-        jPanel3 = new javax.swing.JPanel();
+        panelContrast = new javax.swing.JPanel();
         sliderContrast = new javax.swing.JSlider();
         btnCancel = new javax.swing.JButton();
         btnOkay = new javax.swing.JButton();
@@ -58,8 +59,8 @@ public class BrightnessContrast extends javax.swing.JFrame {
         setTitle("Brightness/Contrast");
         setResizable(false);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Brightness"));
-        jPanel2.setToolTipText("");
+        panelBrightness.setBorder(javax.swing.BorderFactory.createTitledBorder("Brightness"));
+        panelBrightness.setToolTipText("");
 
         sliderBrightness.setMajorTickSpacing(50);
         sliderBrightness.setMaximum(255);
@@ -74,18 +75,18 @@ public class BrightnessContrast extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelBrightnessLayout = new javax.swing.GroupLayout(panelBrightness);
+        panelBrightness.setLayout(panelBrightnessLayout);
+        panelBrightnessLayout.setHorizontalGroup(
+            panelBrightnessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sliderBrightness, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelBrightnessLayout.setVerticalGroup(
+            panelBrightnessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sliderBrightness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Contrast"));
+        panelContrast.setBorder(javax.swing.BorderFactory.createTitledBorder("Contrast"));
 
         sliderContrast.setMajorTickSpacing(50);
         sliderContrast.setMaximum(255);
@@ -100,14 +101,14 @@ public class BrightnessContrast extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelContrastLayout = new javax.swing.GroupLayout(panelContrast);
+        panelContrast.setLayout(panelContrastLayout);
+        panelContrastLayout.setHorizontalGroup(
+            panelContrastLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sliderContrast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelContrastLayout.setVerticalGroup(
+            panelContrastLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sliderContrast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -135,8 +136,8 @@ public class BrightnessContrast extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelBrightness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelContrast, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(boxBoth)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
@@ -149,9 +150,9 @@ public class BrightnessContrast extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelBrightness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelContrast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOkay)
@@ -176,6 +177,8 @@ public class BrightnessContrast extends javax.swing.JFrame {
 
     private void sliderBrightnessStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderBrightnessStateChanged
         // TODO add your handling code here:
+        
+        
         ImageShow imageForm = openedImages.get(0);
         
         //creating a new image just for editing
@@ -185,6 +188,8 @@ public class BrightnessContrast extends javax.swing.JFrame {
         
         if(!boxBoth.isSelected())
             imageForm.setImage(effects.changeContrast(editImage, sliderContrast.getValue()));
+        else
+            sliderContrast.setValue(0);
         
         
     }//GEN-LAST:event_sliderBrightnessStateChanged
@@ -210,6 +215,8 @@ public class BrightnessContrast extends javax.swing.JFrame {
 
     private void sliderContrastStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderContrastStateChanged
         // TODO add your handling code here:
+        
+        
         ImageShow imageForm = openedImages.get(0);
         
         //creating a new image just for editing
@@ -220,6 +227,8 @@ public class BrightnessContrast extends javax.swing.JFrame {
         
         if(!boxBoth.isSelected())
             imageForm.setImage(effects.changeBrightness(editImage, sliderBrightness.getValue()));
+        else
+            sliderBrightness.setValue(0);
             
     }//GEN-LAST:event_sliderContrastStateChanged
 
@@ -263,8 +272,8 @@ public class BrightnessContrast extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnOkay;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel panelBrightness;
+    private javax.swing.JPanel panelContrast;
     private javax.swing.JSlider sliderBrightness;
     private javax.swing.JSlider sliderContrast;
     // End of variables declaration//GEN-END:variables

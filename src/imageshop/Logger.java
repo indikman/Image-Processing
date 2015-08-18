@@ -5,8 +5,8 @@
  */
 package imageshop;
 
-import java.awt.Color;
-import javax.swing.BorderFactory;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -35,6 +35,9 @@ public class Logger extends javax.swing.JFrame {
      */
     public Logger() {
         initComponents();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(0, screenSize.height - this.getHeight()-30);
+        this.setSize(screenSize.width, this.getHeight());
     }
 
     /**

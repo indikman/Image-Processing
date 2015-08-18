@@ -40,11 +40,15 @@ public class ImageShow extends javax.swing.JFrame {
         return  ImageName;
     }
     
+   
+    //--------------------------------Constructors---------------------
     public ImageShow(String ImageName){
         initComponents();
         this.setLocationRelativeTo(null);
         this.ImageName = ImageName;
         ToolBox.setCurrentImage(image);
+        
+        Logger.getForm().log(ImageName + " opened!");
     }
   
     public ImageShow(File file){
@@ -59,6 +63,9 @@ public class ImageShow extends javax.swing.JFrame {
             this.setSize(this.getWidth(), image.getHeight()+100);
             imagePanel.setIcon(new ImageIcon(image));
             ToolBox.setCurrentImage(image);
+            
+            Logger.getForm().log(image.getWidth() + " x " + image.getHeight());
+            
         } catch (Exception e) {
             logger.log("Error in opening the Image");
         }
@@ -72,6 +79,8 @@ public class ImageShow extends javax.swing.JFrame {
         imagePanel.setIcon(new ImageIcon(image));
         ToolBox.setCurrentImage(image);
         this.image = image;
+        
+        Logger.getForm().log(image.getWidth() + " x " + image.getHeight());
     }
     
     
@@ -119,7 +128,6 @@ public class ImageShow extends javax.swing.JFrame {
         panelSettings = new javax.swing.JPanel();
         scaleSlider = new javax.swing.JSlider();
         btnHisto = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         comboType = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -149,8 +157,6 @@ public class ImageShow extends javax.swing.JFrame {
                 btnHistoActionPerformed(evt);
             }
         });
-
-        jButton2.setText("jButton2");
 
         comboType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bi-Cubic", "Bi-Linear", "Nearest" }));
 
@@ -186,9 +192,7 @@ public class ImageShow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addComponent(comboType, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                 .addComponent(btnHisto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -198,7 +202,6 @@ public class ImageShow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnHisto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelSettingsLayout.createSequentialGroup()
                         .addComponent(comboType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -264,11 +267,11 @@ public class ImageShow extends javax.swing.JFrame {
          
         BufferedImage scaled = null;
         if(comboType.getSelectedIndex()==0){
-            scaled = effects.getScaledInstance(image, scaledWidth, scaleHeight, RenderingHints.VALUE_INTERPOLATION_BILINEAR, true);
+            scaled = effects.getScaledInstance(image, scaledWidth, scaleHeight, RenderingHints.VALUE_INTERPOLATION_BICUBIC, true);
         }else if(comboType.getSelectedIndex()==1){
             scaled = effects.getScaledInstance(image, scaledWidth, scaleHeight, RenderingHints.VALUE_INTERPOLATION_BILINEAR, true);
         }else if(comboType.getSelectedIndex()==2){
-            scaled = effects.getScaledInstance(image, scaledWidth, scaleHeight, RenderingHints.VALUE_INTERPOLATION_BILINEAR, true);
+            scaled = effects.getScaledInstance(image, scaledWidth, scaleHeight, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR, true);
         }
         
         imagePanel.setIcon(new ImageIcon(scaled));
@@ -294,7 +297,6 @@ public class ImageShow extends javax.swing.JFrame {
     private javax.swing.JComboBox comboType;
     private javax.swing.JLabel imagePanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

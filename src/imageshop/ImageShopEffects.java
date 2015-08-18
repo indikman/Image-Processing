@@ -69,7 +69,7 @@ public class ImageShopEffects {
                 
             }
         }
-        
+        Logger.getForm().log("Generated colour channel Images");
         return tempImage;
     }
     
@@ -107,7 +107,7 @@ public class ImageShopEffects {
                 
             }
         }
-        
+        Logger.getForm().log("Generated negative Image");
         return tempImage;
         
     }
@@ -138,6 +138,7 @@ public class ImageShopEffects {
             }
         }
         
+        Logger.getForm().log("Brightness :" + value);
         return image;
     }
     
@@ -177,6 +178,7 @@ public class ImageShopEffects {
                 
             }
         }
+        Logger.getForm().log("Contrast : " + value);
         return image;
     }
     
@@ -211,28 +213,11 @@ public class ImageShopEffects {
                 
             }
         }
+        
+        Logger.getForm().log("Normalization : " + newMin + " - " + newMax);
         return image;
     }
-    
-    
-    public BufferedImage reSample(BufferedImage image, int width, int height, Object type)
-    {
-        int imgWidth = image.getWidth();
-        int imgHeight = image.getHeight();
-        
-        int imageType = BufferedImage.TYPE_INT_RGB; //Including transparency
-        
-        BufferedImage newImage = new BufferedImage(width, height, imageType);
-        //BufferedImage newImage = (BufferedImage)image;
-        Graphics2D g2 = newImage.createGraphics();
-        
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
-        g2.drawImage(newImage, 0, 0, width, height, null);
-        //g2.dispose();
-        
-        
-        return newImage;
-    }
+
     
     public BufferedImage getScaledInstance(
         BufferedImage img, int targetWidth,
@@ -289,7 +274,10 @@ public class ImageShopEffects {
             ret = tmp;
         } while (w != targetWidth || h != targetHeight);
 
+        Logger.getForm().log("Image Resampling" );
         return ret;
+        
     }
+    
         
 }
